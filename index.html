@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src=""></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-126025947-1');
+    </script>
+    <meta charset="utf-8">
+    <meta name="application-name" content="Free Rider Jumps" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="canonical" href="https://g.pomidor.net/igry-dlya-malchikov/igra-fri-rayd-prijki/" />
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="apple-touch-icon-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="favicon-128.png" sizes="128x128" />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+    <!-- Web Manifest-->
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#000000">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Free Rider Jumps - Stickman Bike Race Game</title>
+    <meta name="description" content="Compete for highest scores against friends by racing your stickman bike farthest and with best tricks!" />
+    <meta name="google-site-verification" content="4YGyr5Kqv1eOl313G2BJcJAj0Uc2bD9EvrpGe5GnUAU" />
+    <link rel="chrome-webstore-item" href="">
+
+    <!-- Rollbar error tracking -->
+    <script>
+        var _rollbarConfig = {
+            accessToken: "30016704087d41318cb2ede474911b2f",
+            captureUncaught: true,
+            captureUnhandledRejections: true,
+            payload: { environment: "production" }
+        };
+    </script>
+
+    <script type="text/javascript" src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+    <script>
+        if (navigator.serviceWorker.controller) {
+            console.log('[Free Rider Jumps] active service worker found, no need to register')
+        } else {
+            navigator.serviceWorker.register('free-rider-sw.js?version=' + encodeURIComponent('1.0.53'), {
+                scope: './'
+            }).then(function (reg) {
+                console.log('Service worker has been registered for scope:' + reg.scope);
+            });
+        }
+    </script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <style>
+        * { box-sizing: border-box; }
+        html, body { height: 100%; margin:0; padding:0; text-align:center; background:#000; overflow:hidden; }
+        .centered-container { display:flex; align-items:center; justify-content:center; width:100%; height:100%; position:absolute; top:0; bottom:0; overflow:hidden; }
+        .game-container { position:absolute; bottom:0; top:0; left:0; right:0; }
+        .ads-container { background:#000; }
+        @media (min-width:600px){ .desktop .game-container { top:0px; left:0px; } }
+        .freerider-canvas-container { background:#fff; }
+        .footer { display:none; height:100px; background:#FFF; position:absolute; bottom:0; width:100%; padding:20px; }
+        .footer a, .footer button { float:right; margin:0 10px; }
+        .footer a.footer-messenger-badge { float:left; }
+        .footer-chrome-badge { display:none; }
+        @media (min-width:600px){ .desktop .footer { display:block; padding:20px 40px; background:#000; } }
+        @media (min-width:700px){ .desktop .footer-chrome-badge { display:inline-block; } }
+    </style>
+</head>
+
+<body>
+    <div class="game-container" id="game-container">
+        <div class="centered-container">
+            <div class="freerider-canvas-container" id="freerider-canvas-container" style="visibility: hidden"></div>
+        </div>
+        <div class="centered-container">
+            <div class="phaser-canvas-container" id="phaser-canvas-container"></div>
+        </div>
+        <div id="ads-container" class="ads-container centered-container" style="display:none">
+            <video id="ads-player"></video>
+            <div id="ads-sdk-container" class="ads-container centered-container"></div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="game.js" charset="utf-8"></script>
+    <script>
+        if (chrome.app.isInstalled) {
+            document.getElementById('add-to-chrome-button').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
